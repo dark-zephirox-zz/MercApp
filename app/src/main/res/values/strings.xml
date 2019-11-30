@@ -4,4 +4,12 @@
     <string name="title_search">Buscar</string>
     <string name="title_shopping_cart">Carrito de Compra</string>
     <string name="placeholder_search">Buscar Productos</string>
+    <string name="register">Registrarse</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="reg1">Nombre</string>
+    <string name="reg2">Correo</string>
+    <string name="reg3">Contraseña</string>
+    <string name="reg4">N° Teléfono</string>
 </resources>
