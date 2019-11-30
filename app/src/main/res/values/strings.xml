@@ -12,4 +12,5 @@
     <string name="reg2">Correo</string>
     <string name="reg3">Contraseña</string>
     <string name="reg4">N° Teléfono</string>
+    <string name="message_shopping_cart">Usted tiene actualmente {cant_value} productos en el carrito, por valor de {money_value}</string>
 </resources>

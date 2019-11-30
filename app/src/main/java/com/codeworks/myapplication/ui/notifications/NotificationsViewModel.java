@@ -10,7 +10,7 @@ public class NotificationsViewModel extends ViewModel {
 
     public NotificationsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
+        mText.setValue("Usted tiene actualmente {cant_value} productos en el carrito, por valor de {money_value}");
     }
 
     public LiveData<String> getText() {
