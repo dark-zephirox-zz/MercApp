@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "49483417955",
+    "firebase_url": "https://mercapp-ef7a9.firebaseio.com",
+    "project_id": "mercapp-ef7a9",
+    "storage_bucket": "mercapp-ef7a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49483417955:android:b694886976f9661042eb56",
+        "android_client_info": {
+          "package_name": "com.codeworks.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49483417955-0q8skd4j3q4vvfbq8hm8s1d96k0ll9nd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codeworks.myapplication",
+            "certificate_hash": "30553ae299487ed046c706c531f696aac6883c5b"
+          }
+        },
+        {
+          "client_id": "49483417955-rstd45i9r3lb7a4oa2mtt5s40v3sc629.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw9LSK1C0EM_eyVTL-c5wz3T9f6cJRtOU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49483417955-n9di7kclqkjvj8ppkjhu3ksi5net1ej0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

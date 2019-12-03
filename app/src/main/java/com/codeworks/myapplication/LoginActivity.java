@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
-        googleSignInClient.signOut();
+        //googleSignInClient.signOut();
         Button login_button = findViewById(R.id.login_button);
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
