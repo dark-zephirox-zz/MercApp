@@ -1,5 +1,6 @@
 package com.codeworks.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
     private SignInButton googleSignInButton;
@@ -25,13 +30,17 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
-        //googleSignInClient.signOut();
         Button login_button = findViewById(R.id.login_button);
+        final TextInputEditText txt1 = findViewById(R.id.username);
+        final TextInputEditText txt2 = findViewById(R.id.password);
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent mainIntent = new Intent(view.getContext(), MainActivity.class);
-                startActivity(mainIntent);
+                if (txt1.getText().equals("") || txt2.getText().equals("")){
+                    Toast.makeText(LoginActivity.this, "Ingrese las Credenciales", Toast.LENGTH_SHORT).show();
+                }else{
+                    startMainActivity(LoginActivity.this);
+                }
             }
         });
         googleSignInButton = findViewById(R.id.sign_in_button);
@@ -50,23 +59,26 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-
-                // Signed in successfully, show authenticated UI.
-
-                Toast.makeText(this, account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference usersRef = database.getReference("users");
+                //usersRef.child(account.getId()).setValue(account.getId());
+                usersRef.child(account.getId()).child("mail").setValue(account.getEmail());
+                usersRef.child(account.getId()).child("password").setValue("");
+                usersRef.child(account.getId()).child("username").setValue(account.getDisplayName());
+                usersRef.child(account.getId()).child("type").setValue("google");
+                Toast.makeText(this, "Bienvenido, "+account.getDisplayName(), Toast.LENGTH_SHORT).show();
+                startMainActivity(this);
             } catch (ApiException e) {
-                // The ApiException status code indicates the detailed failure reason.
-                // Please refer to the GoogleSignInStatusCodes class reference for more information.
                 Log.w("Error", "signInResult:failed code=" + e.getStatusCode());
             }
         }
+    }
+    public static void startMainActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
     }
 }

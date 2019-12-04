@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "49483417955-mq09u9elshnkgp53tjcj8mlvjphicv54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codeworks.myapplication",
+            "certificate_hash": "9bc73728c2ee7b43ea2566802e5bef7d15381408"
+          }
+        },
+        {
           "client_id": "49483417955-rstd45i9r3lb7a4oa2mtt5s40v3sc629.apps.googleusercontent.com",
           "client_type": 3
         }
