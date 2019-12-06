@@ -65,7 +65,6 @@ public class LoginActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference usersRef = database.getReference("users");
-                //usersRef.child(account.getId()).setValue(account.getId());
                 usersRef.child(account.getId()).child("mail").setValue(account.getEmail());
                 usersRef.child(account.getId()).child("password").setValue("");
                 usersRef.child(account.getId()).child("username").setValue(account.getDisplayName());
